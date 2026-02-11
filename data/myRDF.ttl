@@ -1,0 +1,18 @@
+@prefix kg: <https://studiegids.vu.nl/en/courses/2025-2026/XM_0147#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+kg:Course a rdfs:Class .
+
+kg:MasterCourse a rdfs:Class ;
+    rdfs:subClassOf kg:Course .
+
+kg:XM_0147 a kg:MasterCourse ;
+    rdfs:label "Knowledge Graphs and Semantic Technologies" ;
+    kg:hasECTS "6 EC" ;
+    kg:hasLanguage "English" .
+
+kg:hasECTS a rdf:Property .
+
+kg:hasLanguage a rdf:Property .
+
