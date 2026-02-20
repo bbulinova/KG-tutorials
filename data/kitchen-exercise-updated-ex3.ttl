@@ -1,0 +1,221 @@
+@prefix : <http://example.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:BedRoom a owl:Class ;
+    rdfs:subClassOf :Room .
+
+:Chair a owl:Class ;
+    rdfs:subClassOf :Object .
+
+:Kitchen a owl:Class ;
+    rdfs:subClassOf :Room ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty :contains ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Fridge :Sink :Stove ) ] ] .
+
+:LivingRoom a owl:Class ;
+    rdfs:subClassOf :Room .
+
+:Sofa a owl:Class ;
+    rdfs:subClassOf :Object .
+
+:bed1 a :Bed,
+        owl:NamedIndividual ;
+    rdfs:label "bed 1" ;
+    :hasCoordinates "(-9.5, 1.5, 1.57, 1.6)" ;
+    :hasLocation :room1 .
+
+:bookshelf3 a :Shelf,
+        owl:NamedIndividual ;
+    rdfs:label "bookshelf 3" ;
+    :hasLocation :room4 .
+
+:box1 a :Box,
+        owl:NamedIndividual ;
+    rdfs:label "box 1" ;
+    :hasLocation :room1 .
+
+:box2 a :Box,
+        owl:NamedIndividual ;
+    rdfs:label "box 2" ;
+    :hasLocation :room4 .
+
+:box3 a :Box,
+        owl:NamedIndividual ;
+    rdfs:label "box 3" ;
+    :hasLocation :room4 .
+
+:hasCoordinates a owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasGeometry a owl:DatatypeProperty ;
+    rdfs:domain :Room ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasStatus a owl:DatatypeProperty ;
+    rdfs:domain :Door .
+
+:room3 a :Room,
+        owl:NamedIndividual ;
+    rdfs:label "room 3" ;
+    :hasGeometry "[-3.0, -9.5, 4.0, 8.0]" .
+
+:table4 a :Table,
+        owl:NamedIndividual ;
+    rdfs:label "table 4" ;
+    :hasCoordinates "(-6.6, -4.8, 0.0, 0.8)" .
+
+<https://example.org/Box> a owl:Class ;
+    rdfs:subClassOf :Object .
+
+:Bed a owl:Class ;
+    rdfs:subClassOf :Object .
+
+:Wardrobe a owl:Class ;
+    rdfs:subClassOf :Location,
+        :Object ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :wardrobe1 ) ] .
+
+:bookshelf1 a :Shelf,
+        owl:NamedIndividual ;
+    rdfs:label "bookshelf 1" ;
+    :hasCoordinates "(-2.51, 6.4, 0.0, 0.4)" ;
+    :hasLocation :room1 .
+
+:bookshelf2 a :Shelf,
+        owl:NamedIndividual ;
+    rdfs:label "bookshelf 2" ;
+    :hasCoordinates "(-3.6, 6.4, 0.0, 0.4)" ;
+    :hasLocation :room1 .
+
+:contains a owl:ObjectProperty ;
+    rdfs:domain :Location ;
+    rdfs:range :Object ;
+    owl:inverseOf :hasLocation .
+
+:door1 a owl:NamedIndividual ;
+    :hasCoordinates "(1.0, -5.4, 0.0, 0.2)" ;
+    :hasStatus "open" .
+
+:door2 a owl:NamedIndividual ;
+    :hasCoordinates "(1.0, 2.6, 0.0, 0.2)" ;
+    :hasStatus "closed" .
+
+:door3 a owl:NamedIndividual ;
+    :hasCoordinates "(-1.2, -1.2, 1.57, 0.2)" ;
+    :hasStatus "open" .
+
+:door4 a owl:NamedIndividual ;
+    :hasCoordinates "(-3.0, -5.4, 0.0, 0.2)" ;
+    :hasStatus "open" .
+
+:entrance a :Door,
+        owl:NamedIndividual ;
+    :hasCoordinates "(-1.0, -8.0, 0.0, 0.0)" .
+
+:hasLocation a owl:ObjectProperty,
+        owl:TransitiveProperty .
+
+:room2 a :Room,
+        owl:NamedIndividual ;
+    rdfs:label "room 2" ;
+    :contains :fridge1,
+        :sink1,
+        :stove1 ;
+    :hasGeometry "[-11.0, -9.5, 8.0, 8.0]" .
+
+:table1 a :Table,
+        owl:NamedIndividual ;
+    rdfs:label "table 1" ;
+    :hasCoordinates "(5.0, 0.0, 0.0, 0.8)" ;
+    :hasLocation :room4 .
+
+:table2 a :Table,
+        owl:NamedIndividual ;
+    rdfs:label "table 2" ;
+    :hasCoordinates "(5.0, 5.5, 0.0, 1.2)" ;
+    :hasLocation :room4 .
+
+:table3 a :Table,
+        owl:NamedIndividual ;
+    rdfs:label "table 3" ;
+    :hasCoordinates "(5.0, -5.0, 0.0, 1.6)" ;
+    :hasLocation :room2 .
+
+:wardrobe1 a :Wardrobe,
+        owl:NamedIndividual ;
+    rdfs:label "wardrobe 1" ;
+    :hasCoordinates "(-8.0, 5.76, 0.0, 2.2)" ;
+    :hasLocation :room1 .
+
+:Door a owl:Class ;
+    rdfs:subClassOf :Location ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :door1 :door2 :door3 :door4 :entrance ) ] .
+
+:Fridge a owl:Class ;
+    rdfs:subClassOf :KitchenObject ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :fridge1 ) ] .
+
+:Sink a owl:Class ;
+    rdfs:subClassOf :KitchenObject ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :sink1 ) ] .
+
+:Stove a owl:Class ;
+    rdfs:subClassOf :KitchenObject ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :stove1 ) ] .
+
+:fridge1 a :Fridge,
+        owl:NamedIndividual ;
+    rdfs:label "fridge 1" ;
+    :hasCoordinates "(-7.0, -9.0, 3.14, 1.6)" .
+
+:sink1 a :Sink,
+        owl:NamedIndividual ;
+    rdfs:label "sink 1" ;
+    :hasCoordinates "(-10.4, -5.0, 1.57, 1.0)" .
+
+:stove1 a :Stove,
+        owl:NamedIndividual ;
+    rdfs:label "stove 1" ;
+    :hasCoordinates "(-7.0, -2.3, 0.0, 0.8)" .
+
+:KitchenObject a owl:Class ;
+    rdfs:subClassOf :Object .
+
+:Shelf a owl:Class ;
+    rdfs:subClassOf :Object ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :bookshelf1 :bookshelf2 ) ] .
+
+:Location a owl:Class .
+
+:Table a owl:Class ;
+    rdfs:subClassOf :Object ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :table1 :table2 :table3 ) ] .
+
+:room1 a :Room,
+        owl:NamedIndividual ;
+    rdfs:label "room 1" ;
+    :hasGeometry "[-11.0, -1.5, 12.0, 8.0]" .
+
+:room4 a :Room,
+        owl:NamedIndividual ;
+    rdfs:label "room 4" ;
+    :hasGeometry "[1.0, -9.5, 10.0, 16.0]" .
+
+:Room a owl:Class ;
+    rdfs:subClassOf :Location .
+
+:Object a owl:Class .
+
+[] a owl:Ontology .
+

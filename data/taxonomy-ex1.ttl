@@ -1,0 +1,36 @@
+@prefix : <http://example.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Bed a owl:Class ;
+    rdfs:subClassOf :MovableObject .
+
+:Bookshelf a owl:Class ;
+    rdfs:subClassOf :MovableObject .
+
+:Door a owl:Class ;
+    rdfs:subClassOf :NonMovableObject .
+
+:Fridge a owl:Class ;
+    rdfs:subClassOf :NonMovableObject .
+
+:Room a owl:Class ;
+    rdfs:subClassOf :NonMovableObject .
+
+:Sink a owl:Class ;
+    rdfs:subClassOf :NonMovableObject .
+
+:Sofa a owl:Class ;
+    rdfs:subClassOf :MovableObject .
+
+:Stove a owl:Class ;
+    rdfs:subClassOf :NonMovableObject .
+
+:Wall a owl:Class ;
+    rdfs:subClassOf :NonMovableObject .
+
+:MovableObject a owl:Class ;
+    owl:disjointWith :NonMovableObject .
+
+:NonMovableObject a owl:Class .
+
