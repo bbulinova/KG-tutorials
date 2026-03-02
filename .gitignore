@@ -6,3 +6,7 @@ GoT*
 *.DS_Storedata/french_royalty.npz
 data/*.npz
 data/*.zip
+data/french_royalty.npz
+data/*.npz
+data/*.npz.zip
+data/*.zip
