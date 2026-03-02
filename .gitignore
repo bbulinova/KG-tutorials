@@ -3,4 +3,6 @@ checkpoint*
 GoT*
 *.pkl
 *.ipynb_checkpoints*
-*.DS_Store
+*.DS_Storedata/french_royalty.npz
+data/*.npz
+data/*.zip
