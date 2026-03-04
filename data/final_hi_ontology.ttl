@@ -1,0 +1,709 @@
+@prefix hi: <http://www.semanticweb.org/vbr240/ontologies/2022/4/untitled-ontology-51/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.semanticweb.org/vbr240/ontologies/2022/4/untitled-ontology-51> a owl:Ontology .
+
+hi:Adaptiveness a hi:Capability,
+        owl:NamedIndividual .
+
+hi:Adult a hi:Human,
+        owl:NamedIndividual .
+
+hi:BDI a hi:Capability,
+        owl:NamedIndividual .
+
+hi:Child a hi:Human,
+        owl:NamedIndividual .
+
+hi:Collaboration-based a hi:InteractionMethod,
+        owl:NamedIndividual .
+
+hi:Collaborativeness a hi:Capability,
+        owl:NamedIndividual .
+
+hi:Communication a hi:Capability,
+        owl:NamedIndividual .
+
+hi:Contribution-based a hi:InteractionMethod,
+        owl:NamedIndividual .
+
+hi:Designer a hi:Human,
+        owl:NamedIndividual .
+
+hi:Explainability a hi:InteractionTask,
+        owl:NamedIndividual .
+
+hi:Generating a hi:ProcessingTask,
+        owl:NamedIndividual .
+
+hi:Hybrid a hi:ProcessingMethod,
+        owl:NamedIndividual .
+
+hi:Intelligent_System a hi:ArtificialAgent,
+        owl:NamedIndividual .
+
+hi:Learning a hi:ProcessingTask,
+        owl:NamedIndividual .
+
+hi:Multimodal a hi:InteractionMethod,
+        owl:NamedIndividual .
+
+hi:Neuro-symbolic a hi:ProcessingMethod,
+        owl:NamedIndividual .
+
+hi:Non-cooperative a hi:InteractionMethod,
+        owl:NamedIndividual .
+
+hi:Question-Answering a hi:InteractionTask,
+        owl:NamedIndividual .
+
+hi:Reasoning a hi:ProcessingTask,
+        owl:NamedIndividual .
+
+hi:Recommendation a hi:InteractionTask,
+        owl:NamedIndividual .
+
+hi:Responsibility a hi:Capability,
+        owl:NamedIndividual .
+
+hi:Robot a hi:ArtificialAgent,
+        owl:NamedIndividual .
+
+hi:Single-agent a hi:InteractionMethod,
+        owl:NamedIndividual .
+
+hi:Statistical a hi:ProcessingMethod,
+        owl:NamedIndividual .
+
+hi:Symbolic a hi:ProcessingMethod,
+        owl:NamedIndividual .
+
+hi:Teacher a hi:Human,
+        owl:NamedIndividual .
+
+hi:Transforming a hi:ProcessingTask,
+        owl:NamedIndividual .
+
+hi:Transparency a hi:Capability,
+        owl:NamedIndividual .
+
+hi:capability a owl:ObjectProperty ;
+    rdfs:domain hi:Actor ;
+    rdfs:range hi:Capability .
+
+hi:context a owl:ObjectProperty ;
+    rdfs:domain hi:Scenario ;
+    rdfs:range hi:Context .
+
+hi:domain a owl:ObjectProperty ;
+    rdfs:domain hi:Scenario ;
+    rdfs:range hi:Domain .
+
+hi:endgoal a owl:ObjectProperty ;
+    rdfs:domain hi:Scenario ;
+    rdfs:range hi:Endgoal .
+
+hi:hasEthicalConsideration a owl:ObjectProperty ;
+    rdfs:domain hi:Scenario ;
+    rdfs:range hi:EthicalConsideration .
+
+hi:hasInteraction a owl:ObjectProperty ;
+    rdfs:domain hi:Scenario ;
+    rdfs:range hi:Interaction .
+
+hi:inScenario a owl:ObjectProperty ;
+    rdfs:domain hi:Actor ;
+    rdfs:range hi:Scenario ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+hi:informationMethod a owl:ObjectProperty ;
+    rdfs:domain hi:InformationProcessing ;
+    rdfs:range hi:ProcessingMethod .
+
+hi:interactingAgent a owl:ObjectProperty ;
+    rdfs:domain hi:Interaction ;
+    rdfs:range hi:Actor .
+
+hi:interactionMethod a owl:ObjectProperty ;
+    rdfs:domain hi:Interaction ;
+    rdfs:range hi:InteractionMethod .
+
+hi:interactionTask a owl:ObjectProperty ;
+    rdfs:domain hi:Interaction ;
+    rdfs:range hi:InteractionTask .
+
+hi:processingInformation a owl:ObjectProperty ;
+    rdfs:domain hi:Actor ;
+    rdfs:range hi:InformationProcessing .
+
+hi:processingTask a owl:ObjectProperty ;
+    rdfs:domain hi:InformationProcessing ;
+    rdfs:range hi:ProcessingTask .
+
+hi:Context a owl:Class .
+
+hi:Domain a owl:Class .
+
+hi:Endgoal a owl:Class .
+
+hi:EthicalConsideration a owl:Class .
+
+hi:ArtificialAgent a owl:Class ;
+    rdfs:subClassOf hi:Actor .
+
+hi:InformationProcessing a owl:Class .
+
+hi:Human a owl:Class ;
+    rdfs:subClassOf hi:Actor .
+
+hi:Interaction a owl:Class .
+
+hi:InteractionTask a owl:Class .
+
+hi:ProcessingMethod a owl:Class .
+
+hi:ProcessingTask a owl:Class .
+
+hi:Actor a owl:Class .
+
+hi:InteractionMethod a owl:Class .
+
+hi:Scenario a owl:Class .
+
+hi:Capability a owl:Class .
+
+
+
+# (Todsen 2025) — Managing Uncertainty in Clinical AI
+
+hi:Clinician a hi:Human, owl:NamedIndividual .
+hi:ClinicalAIDecisionSupportTool a hi:ArtificialAgent, owl:NamedIndividual .
+
+hi:ClinicalDecisionMaking a hi:Domain, owl:NamedIndividual .
+hi:DiagnosticUncertaintyContext a hi:Context, owl:NamedIndividual .
+
+hi:ClinicalUncertaintyCommunicationScenario a hi:Scenario, owl:NamedIndividual ;
+  hi:domain hi:ClinicalDecisionMaking ;
+  hi:context hi:DiagnosticUncertaintyContext .
+
+hi:TrustInAutomation a hi:Capability, owl:NamedIndividual .
+hi:DecisionConfidence a hi:Capability, owl:NamedIndividual .
+hi:UncertaintyQuantification a hi:ProcessingTask, owl:NamedIndividual .
+
+hi:JAS_AdviceTakingInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Collaboration-based ;
+  hi:interactionTask hi:Recommendation ;
+  hi:interactingAgent hi:Clinician, hi:ClinicalAIDecisionSupportTool .
+
+hi:ClinicalAIDecisionSupportTool hi:capability hi:Transparency, hi:Communication .
+hi:Clinician hi:capability hi:Responsibility, hi:TrustInAutomation, hi:DecisionConfidence .
+
+hi:ClinicalUncertaintyCommunicationScenario hi:hasInteraction hi:JAS_AdviceTakingInteraction .
+
+# (Monti & Vsevolodovna 2025) — Neurosymbolic hallucinations -> ontology evolution
+
+hi:LLM_Agent a hi:ArtificialAgent, owl:NamedIndividual .
+hi:DomainExpert a hi:Human, owl:NamedIndividual .
+
+hi:OntologyEvolutionDomain a hi:Domain, owl:NamedIndividual .
+hi:OntologyMaintenanceContext a hi:Context, owl:NamedIndividual .
+
+hi:NeurosymbolicOntologyEvolutionScenario a hi:Scenario, owl:NamedIndividual ;
+  hi:domain hi:OntologyEvolutionDomain ;
+  hi:context hi:OntologyMaintenanceContext .
+
+hi:HallucinationChecking a hi:ProcessingTask, owl:NamedIndividual .
+hi:AxiomWeakening a hi:ProcessingMethod, owl:NamedIndividual .
+hi:CandidateKnowledgeBuffer a hi:InformationProcessing, owl:NamedIndividual .
+hi:ExpertValidation a hi:InteractionTask, owl:NamedIndividual .
+
+hi:NeurosymbolicRepairInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Collaboration-based ;
+  hi:interactionTask hi:Explainability ;
+  hi:interactingAgent hi:LLM_Agent, hi:DomainExpert .
+
+hi:LLM_Agent hi:processingInformation hi:CandidateKnowledgeBuffer .
+hi:CandidateKnowledgeBuffer hi:processingTask hi:HallucinationChecking ;
+  hi:informationMethod hi:AxiomWeakening .
+
+hi:NeurosymbolicOntologyEvolutionScenario hi:hasInteraction hi:NeurosymbolicRepairInteraction .
+
+# (Voet et al. 2025) — Knowledge formalization w/ LLM support
+
+hi:KnowledgeEngineer a hi:Human, owl:NamedIndividual .
+hi:FormalizationAssistantAgent a hi:ArtificialAgent, owl:NamedIndividual .
+
+hi:KnowledgeFormalizationDomain a hi:Domain, owl:NamedIndividual .
+hi:KnowledgeAcquisitionBottleneckContext a hi:Context, owl:NamedIndividual .
+
+hi:KnowledgeFormalizationScenario a hi:Scenario, owl:NamedIndividual ;
+  hi:domain hi:KnowledgeFormalizationDomain ;
+  hi:context hi:KnowledgeAcquisitionBottleneckContext .
+
+hi:StructuredRuleElicitation a hi:ProcessingTask, owl:NamedIndividual .
+hi:SymbolExtraction a hi:ProcessingTask, owl:NamedIndividual .
+hi:FormalRuleGeneration a hi:ProcessingTask, owl:NamedIndividual .
+hi:SyntacticChecking a hi:ProcessingTask, owl:NamedIndividual .
+hi:CounterexampleBasedRefinement a hi:InteractionTask, owl:NamedIndividual .
+
+hi:KnowledgeAcquisitionInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Collaboration-based ;
+  hi:interactionTask hi:Question-Answering ;
+  hi:interactingAgent hi:DomainExpert, hi:FormalizationAssistantAgent, hi:KnowledgeEngineer .
+
+hi:FormalizationPipeline a hi:InformationProcessing, owl:NamedIndividual ;
+  hi:processingTask hi:StructuredRuleElicitation, hi:SymbolExtraction, hi:FormalRuleGeneration, hi:SyntacticChecking ;
+  hi:informationMethod hi:Hybrid .
+
+hi:FormalizationAssistantAgent hi:processingInformation hi:FormalizationPipeline ;
+  hi:capability hi:Explainability, hi:Communication .
+
+hi:KnowledgeFormalizationScenario hi:hasInteraction hi:KnowledgeAcquisitionInteraction .
+
+# (Guo & Klein 2025) — Long-term chatbot memory, dataset + GraphMemo
+
+hi:Chatbot a hi:ArtificialAgent, owl:NamedIndividual .
+
+hi:LongTermConversationDomain a hi:Domain, owl:NamedIndividual .
+hi:LongContextInteractionContext a hi:Context, owl:NamedIndividual .
+
+hi:LongTermMemoryChatbotScenario a hi:Scenario, owl:NamedIndividual ;
+  hi:domain hi:LongTermConversationDomain ;
+  hi:context hi:LongContextInteractionContext .
+
+hi:LongMemo5Dataset a hi:Context, owl:NamedIndividual .
+hi:GraphMemoMemorySystem a hi:InformationProcessing, owl:NamedIndividual .
+hi:GraphStructuredRetrieval a hi:ProcessingTask, owl:NamedIndividual .
+hi:SpreadingActivation a hi:ProcessingMethod, owl:NamedIndividual .
+hi:UserModeling a hi:Capability, owl:NamedIndividual .
+
+hi:MemoryAugmentedDialogueInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Multimodal ;
+  hi:interactionTask hi:Question-Answering ;
+  hi:interactingAgent hi:Chatbot, hi:Adult .
+
+hi:GraphMemoMemorySystem hi:processingTask hi:GraphStructuredRetrieval ;
+  hi:informationMethod hi:SpreadingActivation .
+
+hi:Chatbot hi:processingInformation hi:GraphMemoMemorySystem ;
+  hi:capability hi:Communication, hi:UserModeling .
+
+# Alex scenario — personalized learning w/ teacher + therapist + robot
+
+hi:Alex a hi:Child, owl:NamedIndividual .
+hi:Therapist a hi:Human, owl:NamedIndividual .
+hi:AssistiveRobot a hi:Robot, owl:NamedIndividual .
+
+hi:SpecialEducationDomain a hi:Domain, owl:NamedIndividual .
+hi:PersonalizedLearningContext a hi:Context, owl:NamedIndividual .
+hi:StandardCurriculumGoal a hi:Endgoal, owl:NamedIndividual .
+
+hi:ChildPrivacy a hi:EthicalConsideration, owl:NamedIndividual .
+hi:InformedConsent a hi:EthicalConsideration, owl:NamedIndividual .
+
+hi:Personalization a hi:Capability, owl:NamedIndividual .
+hi:Engagement a hi:Capability, owl:NamedIndividual .
+hi:ProgressMonitoring a hi:Capability, owl:NamedIndividual .
+hi:NormAwareness a hi:Capability, owl:NamedIndividual .
+hi:PositiveReinforcement a hi:InteractionTask, owl:NamedIndividual .
+
+hi:AlexLearningSupportScenario a hi:Scenario, owl:NamedIndividual ;
+  hi:domain hi:SpecialEducationDomain ;
+  hi:context hi:PersonalizedLearningContext ;
+  hi:endgoal hi:StandardCurriculumGoal ;
+  hi:hasEthicalConsideration hi:ChildPrivacy, hi:InformedConsent .
+
+# actors are in this scenario
+hi:Alex hi:inScenario hi:AlexLearningSupportScenario .
+hi:Teacher hi:inScenario hi:AlexLearningSupportScenario .
+hi:Therapist hi:inScenario hi:AlexLearningSupportScenario .
+hi:AssistiveRobot hi:inScenario hi:AlexLearningSupportScenario .
+
+
+# key interactions (>=5)
+hi:InitiationAssessmentInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Multimodal ;
+  hi:interactionTask hi:Question-Answering ;
+  hi:interactingAgent hi:AssistiveRobot, hi:Alex .
+
+hi:CollaborativeLearningPlanInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Collaboration-based ;
+  hi:interactionTask hi:Recommendation ;
+  hi:interactingAgent hi:Teacher, hi:Therapist, hi:AssistiveRobot .
+
+hi:ThemeAdaptationInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Single-agent ;
+  hi:interactionTask hi:Recommendation ;
+  hi:interactingAgent hi:AssistiveRobot, hi:Alex .
+
+hi:ProgressReportingInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Contribution-based ;
+  hi:interactionTask hi:Explainability ;
+  hi:interactingAgent hi:AssistiveRobot, hi:Teacher, hi:Therapist .
+
+hi:PositiveReinforcementInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Multimodal ;
+  hi:interactionTask hi:PositiveReinforcement ;
+  hi:interactingAgent hi:AssistiveRobot, hi:Alex .
+
+# attach interactions to the scenario
+hi:AlexLearningSupportScenario hi:hasInteraction
+  hi:InitiationAssessmentInteraction,
+  hi:CollaborativeLearningPlanInteraction,
+  hi:ThemeAdaptationInteraction,
+  hi:ProgressReportingInteraction,
+  hi:PositiveReinforcementInteraction .
+
+# capabilities of main actors
+hi:AssistiveRobot hi:capability
+  hi:Adaptiveness, hi:Transparency, hi:Communication,
+  hi:Personalization, hi:Engagement, hi:ProgressMonitoring, hi:NormAwareness .
+
+hi:Teacher hi:capability hi:Communication, hi:Responsibility, hi:NormAwareness .
+hi:Therapist hi:capability hi:Communication, hi:Responsibility, hi:NormAwareness .
+
+hi:FeedbackLoop a owl:Class .
+hi:MutualAdaptation rdfs:subClassOf hi:FeedbackLoop .
+hi:ModelRetraining a owl:Class .
+hi:TemporalEpoch a owl:Class .
+
+hi:Scenario rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty hi:hasInteraction ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass hi:Interaction ].
+
+hi:Interaction rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty hi:interactingAgent ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass hi:Actor ] .
+
+hi:ArtificialAgent rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty hi:processingInformation ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass hi:InformationProcessing ] .
+
+
+
+
+
+
+
+# Some core classes for adaptive system
+
+hi:Participant a owl:Class ;
+  owl:unionOf ( hi:Human hi:ArtificialAgent ) .
+
+hi:AdaptiveSystem a owl:Class ;
+  rdfs:subClassOf hi:ArtificialAgent .
+
+hi:RecommenderSystem a owl:Class ;
+  rdfs:subClassOf hi:AdaptiveSystem .
+
+hi:GenerativeModel a owl:Class ;
+  rdfs:subClassOf hi:AdaptiveSystem .
+
+hi:UserChoiceModel a owl:Class ;
+  rdfs:subClassOf hi:InformationProcessing .
+
+hi:SimulationFramework a owl:Class ;
+  rdfs:subClassOf hi:InformationProcessing .
+
+hi:RetrainingProcess a owl:Class .
+hi:OnlineLearningProcess a owl:Class ;
+  rdfs:subClassOf hi:RetrainingProcess .
+
+hi:Epoch a owl:Class .
+
+# classes for metrics
+hi:EvaluationMetric a owl:Class .
+hi:DiversityMetric a owl:Class ;
+  rdfs:subClassOf hi:EvaluationMetric .
+
+hi:PerformanceMetric a owl:Class ;
+  rdfs:subClassOf hi:EvaluationMetric .
+
+hi:SimilarityMetric a owl:Class ;
+  rdfs:subClassOf hi:EvaluationMetric .
+
+hi:ConfidenceScore a owl:Class .
+hi:LossFunction a owl:Class .
+hi:AggregationFunction a owl:Class .
+
+# Human computation classes
+hi:HumanComputationSystem a owl:Class ;
+  rdfs:subClassOf hi:Scenario .
+
+hi:WorkerRole a owl:Class .
+hi:RequesterRole a owl:Class .
+
+hi:QualityControlMechanism a owl:Class .
+hi:MotivationType a owl:Class .
+hi:TaskCardinality a owl:Class .
+hi:AggregationStrategy a owl:Class .
+
+# network and collective dynamics
+hi:NetworkModel a owl:Class .
+hi:BipartiteNetwork a owl:Class ;
+  rdfs:subClassOf hi:NetworkModel .
+
+hi:MonopartiteProjection a owl:Class ;
+  rdfs:subClassOf hi:NetworkModel .
+
+hi:CollectiveOutcome a owl:Class .
+hi:IndividualOutcome a owl:Class .
+
+# Some object properties
+hi:hasMetric a owl:ObjectProperty ;
+  rdfs:domain hi:Scenario ;
+  rdfs:range hi:EvaluationMetric .
+
+hi:interactsWith a owl:ObjectProperty ;
+  a owl:SymmetricProperty ;
+  rdfs:domain hi:Actor ;
+  rdfs:range hi:Actor .
+
+hi:partOfTeam a owl:ObjectProperty ;
+  a owl:TransitiveProperty ;
+  rdfs:domain hi:Actor ;
+  rdfs:range hi:Actor .
+
+hi:usesAggregation a owl:ObjectProperty ;
+  rdfs:domain hi:InformationProcessing ;
+  rdfs:range hi:AggregationFunction .
+
+hi:usesLossFunction a owl:ObjectProperty ;
+  rdfs:domain hi:AdaptiveSystem ;
+  rdfs:range hi:LossFunction .
+
+hi:hasConfidenceScore a owl:ObjectProperty ;
+  rdfs:domain hi:AdaptiveSystem ;
+  rdfs:range hi:ConfidenceScore .
+
+hi:hasRetrainingProcess a owl:ObjectProperty ;
+  rdfs:domain hi:AdaptiveSystem ;
+  rdfs:range hi:RetrainingProcess .
+
+hi:evaluatesOutcome a owl:ObjectProperty ;
+  rdfs:domain hi:EvaluationMetric ;
+  rdfs:range hi:CollectiveOutcome .
+
+hi:hasQualityControl a owl:ObjectProperty ;
+  rdfs:domain hi:HumanComputationSystem ;
+  rdfs:range hi:QualityControlMechanism .
+
+# Logical Restriction 
+
+# Every Scenario must have at least one metric
+hi:Scenario rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty hi:hasMetric ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass hi:EvaluationMetric ] .
+
+#Disjoint examples
+[ a owl:AllDisjointClasses ;
+  owl:members ( hi:Human hi:ArtificialAgent ) ] .
+
+[ a owl:AllDisjointClasses ;
+  owl:members ( hi:Scenario hi:Domain ) ] .
+
+
+# Workflow based AI
+
+hi:WorkflowManagementSystem a owl:Class ;
+  rdfs:subClassOf hi:InformationProcessing .
+
+hi:WorkflowEngine a owl:Class ;
+  rdfs:subClassOf hi:WorkflowManagementSystem .
+
+hi:ProcessModel a owl:Class .
+
+hi:ProcessModelConfiguration a owl:Class .
+
+hi:TaskAllocationMechanism a owl:Class .
+
+hi:CollaborationStrategy a owl:Class .
+
+hi:LevelOfAutomation a owl:Class .
+
+hi:Constraint a owl:Class .
+
+hi:EthicalConstraint a owl:Class ;
+  rdfs:subClassOf hi:Constraint .
+
+hi:SituationAwarenessModel a owl:Class .
+
+hi:SharedSituationRepresentation a owl:Class .
+
+hi:SituationAssessment a owl:Class .
+
+hi:TeamSituationAwareness a owl:Class ;
+  rdfs:subClassOf hi:SituationAwarenessModel .
+
+hi:Projection a owl:Class .  # future state prediction
+
+# some classes for decision mechanisms
+
+hi:DecisionMakingMechanism a owl:Class .
+
+hi:TeamSituationAwareness owl:equivalentClass hi:SituationAwarenessModel .
+
+hi:ProcessModelSelectionMechanism a owl:Class ;
+  rdfs:subClassOf hi:DecisionMakingMechanism .
+
+hi:ProcessModelConfigurationMechanism a owl:Class ;
+  rdfs:subClassOf hi:DecisionMakingMechanism .
+
+hi:CaseBasedReasoning a owl:Class ;
+  rdfs:subClassOf hi:ProcessingMethod .
+
+hi:RuleBasedReasoning a owl:Class ;
+  rdfs:subClassOf hi:ProcessingMethod .
+
+hi:LLMBasedReasoning a owl:Class ;
+  rdfs:subClassOf hi:ProcessingMethod .
+
+hi:usesWorkflowEngine a owl:ObjectProperty ;
+  rdfs:domain hi:Scenario ;
+  rdfs:range hi:WorkflowEngine .
+
+hi:usesProcessModel a owl:ObjectProperty ;
+  rdfs:domain hi:WorkflowEngine ;
+  rdfs:range hi:ProcessModel .
+
+hi:hasCollaborationStrategy a owl:ObjectProperty ;
+  rdfs:domain hi:ProcessModel ;
+  rdfs:range hi:CollaborationStrategy .
+
+hi:hasLevelOfAutomation a owl:ObjectProperty ;
+  rdfs:domain hi:CollaborationStrategy ;
+  rdfs:range hi:LevelOfAutomation .
+
+hi:hasConstraint a owl:ObjectProperty ;
+  rdfs:domain hi:Scenario ;
+  rdfs:range hi:Constraint .
+
+hi:hasSharedSituationRepresentation a owl:ObjectProperty ;
+  rdfs:domain hi:Scenario ;
+  rdfs:range hi:SharedSituationRepresentation .
+
+hi:usesDecisionMechanism a owl:ObjectProperty ;
+  rdfs:domain hi:Scenario ;
+  rdfs:range hi:DecisionMakingMechanism .
+
+hi:usesReasoningMethod a owl:ObjectProperty ;
+  rdfs:domain hi:DecisionMakingMechanism ;
+  rdfs:range hi:ProcessingMethod .
+
+hi:allocatesTaskTo a owl:ObjectProperty ;
+  rdfs:domain hi:ProcessModelConfiguration ;
+  rdfs:range hi:Agent .
+
+hi:WorkflowEngine rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty hi:usesProcessModel ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass hi:ProcessModel ] .
+  
+
+
+
+
+# Individuals and instances based on papers Simulating the Impact of Feedback Loop on Users’ Choices and Recommender System, 
+# Improving AI-Generated Music with User-Guided Training and 
+# Situation-Aware Workflow Engines for Adaptive Yet Constrained Human-AI Teaming
+
+
+hi:RetailRecommendationSystem a hi:RecommenderSystem, owl:NamedIndividual .
+
+hi:AgentBasedSimulation a hi:SimulationFramework, owl:NamedIndividual .
+
+hi:MonthlyEpochRetraining a hi:RetrainingProcess, owl:NamedIndividual .
+
+hi:CollectiveGiniCoefficient a hi:DiversityMetric, owl:NamedIndividual .
+hi:JaccardSimilarity a hi:SimilarityMetric, owl:NamedIndividual .
+
+hi:BPRAlgorithm a hi:ProcessingMethod, owl:NamedIndividual .
+hi:PopularityBasedModel a hi:ProcessingMethod, owl:NamedIndividual .
+
+hi:UserItemBipartiteGraph a hi:BipartiteNetwork, owl:NamedIndividual .
+
+hi:RetailFeedbackScenario a hi:Scenario, owl:NamedIndividual ;
+  hi:hasMetric hi:CollectiveGiniCoefficient, hi:JaccardSimilarity .
+
+hi:RetailRecommendationSystem
+  hi:processingInformation hi:AgentBasedSimulation ;
+  hi:hasRetrainingProcess hi:MonthlyEpochRetraining ;
+  hi:informationMethod hi:BPRAlgorithm .
+
+hi:MusicDiffusionModel a hi:GenerativeModel, owl:NamedIndividual .
+
+hi:UserGuidedTrainingProcess a hi:OnlineLearningProcess, owl:NamedIndividual .
+
+hi:AverageRatingIncrease a hi:PerformanceMetric, owl:NamedIndividual .
+
+hi:SimilarityFunctionGamma a hi:SimilarityMetric, owl:NamedIndividual .
+
+hi:WeightedDDIMLoss a hi:LossFunction, owl:NamedIndividual .
+
+hi:SLERPAggregation a hi:AggregationFunction, owl:NamedIndividual .
+
+hi:ImplicitListeningTimeQC a hi:QualityControlMechanism, owl:NamedIndividual .
+
+hi:DefaultConfidenceScore a hi:ConfidenceScore, owl:NamedIndividual .
+hi:MusicDiffusionModel hi:hasConfidenceScore hi:DefaultConfidenceScore .
+
+hi:MusicDiffusionModel
+  hi:hasRetrainingProcess hi:UserGuidedTrainingProcess ;
+  hi:usesLossFunction hi:WeightedDDIMLoss ;
+  hi:usesAggregation hi:SLERPAggregation ;
+  hi:hasConfidenceScore hi:ConfidenceScore .
+
+hi:SituationAwareWorkflowTeamingScenario
+  a hi:Scenario, owl:NamedIndividual ;
+  hi:hasSharedSituationRepresentation hi:TeamSharedSA ;
+  hi:usesWorkflowEngine hi:AdaptiveWorkflowEngine ;
+  hi:usesDecisionMechanism hi:TeamingDecisionMechanism ;
+  hi:hasConstraint hi:EthicalComplianceConstraint .
+
+hi:TeamSharedSA
+  a hi:SharedSituationRepresentation, owl:NamedIndividual .
+
+hi:HumanSituationAssessment
+  a hi:SituationAssessment, owl:NamedIndividual .
+
+hi:AISituationAssessment
+  a hi:SituationAssessment, owl:NamedIndividual .
+
+hi:AdaptiveWorkflowEngine
+  a hi:WorkflowEngine, owl:NamedIndividual ;
+  hi:usesProcessModel hi:SelectedProcessModel .
+
+
+hi:SelectedProcessModel
+  a hi:ProcessModel, owl:NamedIndividual ;
+  hi:hasCollaborationStrategy hi:DynamicCollaborationStrategy .
+
+hi:DynamicCollaborationStrategy
+  a hi:CollaborationStrategy, owl:NamedIndividual ;
+  hi:hasLevelOfAutomation hi:AdaptiveAutomationLevel .
+
+
+hi:TeamingDecisionMechanism
+  a hi:ProcessModelSelectionMechanism, owl:NamedIndividual ;
+  hi:usesReasoningMethod
+      hi:CBRMethod,
+      hi:RuleBasedMethod,
+      hi:LLMReasoner .
+
+hi:CBRMethod a hi:CaseBasedReasoning, owl:NamedIndividual .
+hi:RuleBasedMethod a hi:RuleBasedReasoning, owl:NamedIndividual .
+hi:LLMReasoner a hi:LLMBasedReasoning, owl:NamedIndividual .
+
+hi:EthicalComplianceConstraint
+  a hi:EthicalConstraint, owl:NamedIndividual .

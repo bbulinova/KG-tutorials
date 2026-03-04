@@ -94,7 +94,7 @@ hi:capability a owl:ObjectProperty ;
 
 hi:context a owl:ObjectProperty ;
     rdfs:domain hi:Scenario ;
-    rdfs:range hi:Context .
+    rdfs:range hi:Context .X
 
 hi:domain a owl:ObjectProperty ;
     rdfs:domain hi:Scenario ;

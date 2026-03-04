@@ -1,0 +1,190 @@
+@prefix hi: <http://www.semanticweb.org/vbr240/ontologies/2022/4/untitled-ontology-51/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# (Todsen 2025) — Managing Uncertainty in Clinical AI
+
+hi:Clinician a hi:Human, owl:NamedIndividual .
+hi:ClinicalAIDecisionSupportTool a hi:ArtificialAgent, owl:NamedIndividual .
+
+hi:ClinicalDecisionMaking a hi:Domain, owl:NamedIndividual .
+hi:DiagnosticUncertaintyContext a hi:Context, owl:NamedIndividual .
+
+hi:ClinicalUncertaintyCommunicationScenario a hi:Scenario, owl:NamedIndividual ;
+  hi:domain hi:ClinicalDecisionMaking ;
+  hi:context hi:DiagnosticUncertaintyContext .
+
+hi:TrustInAutomation a hi:Capability, owl:NamedIndividual .
+hi:DecisionConfidence a hi:Capability, owl:NamedIndividual .
+hi:UncertaintyQuantification a hi:ProcessingTask, owl:NamedIndividual .
+
+hi:JAS_AdviceTakingInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Collaboration-based ;
+  hi:interactionTask hi:Recommendation ;
+  hi:interactingAgent hi:Clinician, hi:ClinicalAIDecisionSupportTool .
+
+hi:ClinicalAIDecisionSupportTool hi:capability hi:Transparency, hi:Communication .
+hi:Clinician hi:capability hi:Responsibility, hi:TrustInAutomation, hi:DecisionConfidence .
+
+hi:ClinicalUncertaintyCommunicationScenario hi:hasInteraction hi:JAS_AdviceTakingInteraction .
+
+# (Monti & Vsevolodovna 2025) — Neurosymbolic hallucinations -> ontology evolution
+
+hi:LLM_Agent a hi:ArtificialAgent, owl:NamedIndividual .
+hi:DomainExpert a hi:Human, owl:NamedIndividual .
+
+hi:OntologyEvolutionDomain a hi:Domain, owl:NamedIndividual .
+hi:OntologyMaintenanceContext a hi:Context, owl:NamedIndividual .
+
+hi:NeurosymbolicOntologyEvolutionScenario a hi:Scenario, owl:NamedIndividual ;
+  hi:domain hi:OntologyEvolutionDomain ;
+  hi:context hi:OntologyMaintenanceContext .
+
+hi:HallucinationChecking a hi:ProcessingTask, owl:NamedIndividual .
+hi:AxiomWeakening a hi:ProcessingMethod, owl:NamedIndividual .
+hi:CandidateKnowledgeBuffer a hi:InformationProcessing, owl:NamedIndividual .
+hi:ExpertValidation a hi:InteractionTask, owl:NamedIndividual .
+
+hi:NeurosymbolicRepairInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Collaboration-based ;
+  hi:interactionTask hi:Explainability ;
+  hi:interactingAgent hi:LLM_Agent, hi:DomainExpert .
+
+hi:LLM_Agent hi:processingInformation hi:CandidateKnowledgeBuffer .
+hi:CandidateKnowledgeBuffer hi:processingTask hi:HallucinationChecking ;
+  hi:informationMethod hi:AxiomWeakening .
+
+hi:NeurosymbolicOntologyEvolutionScenario hi:hasInteraction hi:NeurosymbolicRepairInteraction .
+
+# (Voet et al. 2025) — Knowledge formalization w/ LLM support
+
+hi:KnowledgeEngineer a hi:Human, owl:NamedIndividual .
+hi:FormalizationAssistantAgent a hi:ArtificialAgent, owl:NamedIndividual .
+
+hi:KnowledgeFormalizationDomain a hi:Domain, owl:NamedIndividual .
+hi:KnowledgeAcquisitionBottleneckContext a hi:Context, owl:NamedIndividual .
+
+hi:KnowledgeFormalizationScenario a hi:Scenario, owl:NamedIndividual ;
+  hi:domain hi:KnowledgeFormalizationDomain ;
+  hi:context hi:KnowledgeAcquisitionBottleneckContext .
+
+hi:StructuredRuleElicitation a hi:ProcessingTask, owl:NamedIndividual .
+hi:SymbolExtraction a hi:ProcessingTask, owl:NamedIndividual .
+hi:FormalRuleGeneration a hi:ProcessingTask, owl:NamedIndividual .
+hi:SyntacticChecking a hi:ProcessingTask, owl:NamedIndividual .
+hi:CounterexampleBasedRefinement a hi:InteractionTask, owl:NamedIndividual .
+
+hi:KnowledgeAcquisitionInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Collaboration-based ;
+  hi:interactionTask hi:Question-Answering ;
+  hi:interactingAgent hi:DomainExpert, hi:FormalizationAssistantAgent, hi:KnowledgeEngineer .
+
+hi:FormalizationPipeline a hi:InformationProcessing, owl:NamedIndividual ;
+  hi:processingTask hi:StructuredRuleElicitation, hi:SymbolExtraction, hi:FormalRuleGeneration, hi:SyntacticChecking ;
+  hi:informationMethod hi:Hybrid .
+
+hi:FormalizationAssistantAgent hi:processingInformation hi:FormalizationPipeline ;
+  hi:capability hi:Explainability, hi:Communication .
+
+hi:KnowledgeFormalizationScenario hi:hasInteraction hi:KnowledgeAcquisitionInteraction .
+
+# (Guo & Klein 2025) — Long-term chatbot memory, dataset + GraphMemo
+
+hi:Chatbot a hi:ArtificialAgent, owl:NamedIndividual .
+
+hi:LongTermConversationDomain a hi:Domain, owl:NamedIndividual .
+hi:LongContextInteractionContext a hi:Context, owl:NamedIndividual .
+
+hi:LongTermMemoryChatbotScenario a hi:Scenario, owl:NamedIndividual ;
+  hi:domain hi:LongTermConversationDomain ;
+  hi:context hi:LongContextInteractionContext .
+
+hi:LongMemo5Dataset a hi:Context, owl:NamedIndividual .
+hi:GraphMemoMemorySystem a hi:InformationProcessing, owl:NamedIndividual .
+hi:GraphStructuredRetrieval a hi:ProcessingTask, owl:NamedIndividual .
+hi:SpreadingActivation a hi:ProcessingMethod, owl:NamedIndividual .
+hi:UserModeling a hi:Capability, owl:NamedIndividual .
+
+hi:MemoryAugmentedDialogueInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Multimodal ;
+  hi:interactionTask hi:Question-Answering ;
+  hi:interactingAgent hi:Chatbot, hi:Adult .
+
+hi:GraphMemoMemorySystem hi:processingTask hi:GraphStructuredRetrieval ;
+  hi:informationMethod hi:SpreadingActivation .
+
+hi:Chatbot hi:processingInformation hi:GraphMemoMemorySystem ;
+  hi:capability hi:Communication, hi:UserModeling .
+
+# Alex scenario — personalized learning w/ teacher + therapist + robot
+
+hi:Alex a hi:Child, owl:NamedIndividual .
+hi:Therapist a hi:Human, owl:NamedIndividual .
+hi:AssistiveRobot a hi:Robot, owl:NamedIndividual .
+
+hi:SpecialEducationDomain a hi:Domain, owl:NamedIndividual .
+hi:PersonalizedLearningContext a hi:Context, owl:NamedIndividual .
+hi:StandardCurriculumGoal a hi:Endgoal, owl:NamedIndividual .
+
+hi:ChildPrivacy a hi:EthicalConsideration, owl:NamedIndividual .
+hi:InformedConsent a hi:EthicalConsideration, owl:NamedIndividual .
+
+hi:Personalization a hi:Capability, owl:NamedIndividual .
+hi:Engagement a hi:Capability, owl:NamedIndividual .
+hi:ProgressMonitoring a hi:Capability, owl:NamedIndividual .
+hi:NormAwareness a hi:Capability, owl:NamedIndividual .
+hi:PositiveReinforcement a hi:InteractionTask, owl:NamedIndividual .
+
+hi:AlexLearningSupportScenario a hi:Scenario, owl:NamedIndividual ;
+  hi:domain hi:SpecialEducationDomain ;
+  hi:context hi:PersonalizedLearningContext ;
+  hi:endgoal hi:StandardCurriculumGoal ;
+  hi:hasEthicalConsideration hi:ChildPrivacy, hi:InformedConsent .
+
+# actors are in this scenario
+hi:Alex hi:inScenario hi:AlexLearningSupportScenario .
+hi:Teacher hi:inScenario hi:AlexLearningSupportScenario .
+hi:Therapist hi:inScenario hi:AlexLearningSupportScenario .
+hi:AssistiveRobot hi:inScenario hi:AlexLearningSupportScenario .
+
+# key interactions (>=5)
+hi:InitiationAssessmentInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Multimodal ;
+  hi:interactionTask hi:Question-Answering ;
+  hi:interactingAgent hi:AssistiveRobot, hi:Alex .
+
+hi:CollaborativeLearningPlanInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Collaboration-based ;
+  hi:interactionTask hi:Recommendation ;
+  hi:interactingAgent hi:Teacher, hi:Therapist, hi:AssistiveRobot .
+
+hi:ThemeAdaptationInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Single-agent ;
+  hi:interactionTask hi:Recommendation ;
+  hi:interactingAgent hi:AssistiveRobot, hi:Alex .
+
+hi:ProgressReportingInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Contribution-based ;
+  hi:interactionTask hi:Explainability ;
+  hi:interactingAgent hi:AssistiveRobot, hi:Teacher, hi:Therapist .
+
+hi:PositiveReinforcementInteraction a hi:Interaction, owl:NamedIndividual ;
+  hi:interactionMethod hi:Multimodal ;
+  hi:interactionTask hi:PositiveReinforcement ;
+  hi:interactingAgent hi:AssistiveRobot, hi:Alex .
+
+# attach interactions to the scenario
+hi:AlexLearningSupportScenario hi:hasInteraction
+  hi:InitiationAssessmentInteraction,
+  hi:CollaborativeLearningPlanInteraction,
+  hi:ThemeAdaptationInteraction,
+  hi:ProgressReportingInteraction,
+  hi:PositiveReinforcementInteraction .
+
+# capabilities of main actors
+hi:AssistiveRobot hi:capability
+  hi:Adaptiveness, hi:Transparency, hi:Communication,
+  hi:Personalization, hi:Engagement, hi:ProgressMonitoring, hi:NormAwareness .
+
+hi:Teacher hi:capability hi:Communication, hi:Responsibility, hi:NormAwareness .
+hi:Therapist hi:capability hi:Communication, hi:Responsibility, hi:NormAwareness .
